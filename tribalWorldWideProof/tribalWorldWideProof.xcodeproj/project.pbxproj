@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -25,6 +25,10 @@
 		5B99AE53267C3F8C00B4EB89 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B99AE52267C3F8C00B4EB89 /* NetworkService.swift */; };
 		5B99AE55267C48CA00B4EB89 /* NetworkDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B99AE54267C48CA00B4EB89 /* NetworkDataFetcher.swift */; };
 		5B99AE57267C493000B4EB89 /* SearchResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B99AE56267C492F00B4EB89 /* SearchResults.swift */; };
+		5B99AE5C267C7E6200B4EB89 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B99AE5A267C7E6100B4EB89 /* DetailVC.swift */; };
+		5B99AE5D267C7E6200B4EB89 /* DetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B99AE5B267C7E6100B4EB89 /* DetailVC.xib */; };
+		5B99AE60267C904A00B4EB89 /* ExtensionUIVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B99AE5F267C904A00B4EB89 /* ExtensionUIVIewController.swift */; };
+		5B99AE62267CF5CE00B4EB89 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B99AE61267CF5CD00B4EB89 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +53,10 @@
 		5B99AE52267C3F8C00B4EB89 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		5B99AE54267C48CA00B4EB89 /* NetworkDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcher.swift; sourceTree = "<group>"; };
 		5B99AE56267C492F00B4EB89 /* SearchResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResults.swift; sourceTree = "<group>"; };
+		5B99AE5A267C7E6100B4EB89 /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
+		5B99AE5B267C7E6100B4EB89 /* DetailVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailVC.xib; sourceTree = "<group>"; };
+		5B99AE5F267C904A00B4EB89 /* ExtensionUIVIewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIVIewController.swift; sourceTree = "<group>"; };
+		5B99AE61267CF5CD00B4EB89 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C919D959544B2DC77169D0EE /* Pods-tribalWorldWideProof.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tribalWorldWideProof.release.xcconfig"; path = "Target Support Files/Pods-tribalWorldWideProof/Pods-tribalWorldWideProof.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,6 +93,7 @@
 		5B99AE18267BA8EA00B4EB89 /* tribalWorldWideProof */ = {
 			isa = PBXGroup;
 			children = (
+				5B99AE5E267C8D9800B4EB89 /* Extensions */,
 				5B99AE58267C494100B4EB89 /* Models */,
 				5B99AE51267C3F5700B4EB89 /* Services */,
 				5B99AE41267BF85200B4EB89 /* Cells */,
@@ -94,6 +103,7 @@
 				5B99AE1B267BA8EA00B4EB89 /* SceneDelegate.swift */,
 				5B99AE24267BA8EB00B4EB89 /* LaunchScreen.storyboard */,
 				5B99AE27267BA8EB00B4EB89 /* Info.plist */,
+				5B99AE61267CF5CD00B4EB89 /* GoogleService-Info.plist */,
 			);
 			path = tribalWorldWideProof;
 			sourceTree = "<group>";
@@ -129,6 +139,7 @@
 		5B99AE40267BF63700B4EB89 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				5B99AE59267C7E3700B4EB89 /* DetailVC */,
 				5B99AE2D267BC83A00B4EB89 /* FavotiteSection */,
 				5B99AE37267BF30D00B4EB89 /* MainVC */,
 				5B99AE32267BCC1A00B4EB89 /* TabBarNav */,
@@ -180,13 +191,29 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		5B99AE59267C7E3700B4EB89 /* DetailVC */ = {
+			isa = PBXGroup;
+			children = (
+				5B99AE5A267C7E6100B4EB89 /* DetailVC.swift */,
+				5B99AE5B267C7E6100B4EB89 /* DetailVC.xib */,
+			);
+			path = DetailVC;
+			sourceTree = "<group>";
+		};
+		5B99AE5E267C8D9800B4EB89 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5B99AE5F267C904A00B4EB89 /* ExtensionUIVIewController.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		8F5FE4980484FCB13745C8C9 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				3284BE8D141693378CBD5690 /* Pods-tribalWorldWideProof.debug.xcconfig */,
 				C919D959544B2DC77169D0EE /* Pods-tribalWorldWideProof.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -258,6 +285,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B99AE50267C1AD400B4EB89 /* PrincipalCvCell.xib in Resources */,
+				5B99AE5D267C7E6200B4EB89 /* DetailVC.xib in Resources */,
+				5B99AE62267CF5CE00B4EB89 /* GoogleService-Info.plist in Resources */,
 				5B99AE3F267BF3AC00B4EB89 /* MainVC.xib in Resources */,
 				5B99AE26267BA8EB00B4EB89 /* LaunchScreen.storyboard in Resources */,
 				5B99AE31267BC86900B4EB89 /* FavoriteSection.xib in Resources */,
@@ -318,7 +347,9 @@
 			files = (
 				5B99AE30267BC86900B4EB89 /* FavoriteSection.swift in Sources */,
 				5B99AE4F267C1AD400B4EB89 /* PrincipalCvCell.swift in Sources */,
+				5B99AE5C267C7E6200B4EB89 /* DetailVC.swift in Sources */,
 				5B99AE57267C493000B4EB89 /* SearchResults.swift in Sources */,
+				5B99AE60267C904A00B4EB89 /* ExtensionUIVIewController.swift in Sources */,
 				5B99AE53267C3F8C00B4EB89 /* NetworkService.swift in Sources */,
 				5B99AE3E267BF3AC00B4EB89 /* MainVC.swift in Sources */,
 				5B99AE34267BCC5200B4EB89 /* MainTabBarController.swift in Sources */,

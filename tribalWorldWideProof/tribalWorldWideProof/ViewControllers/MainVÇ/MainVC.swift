@@ -22,12 +22,6 @@ class MainVC: UIViewController {
     private var timer: Timer?
     private var photos = [UnsplashPhoto]()
     
-    var unslplashPhoto: UnsplashPhoto!{
-        didSet{
-            let photoUrl = unslplashPhoto.urls["regular"]
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSearchBar()
@@ -44,7 +38,15 @@ class MainVC: UIViewController {
     }
     
     private func setupView(){
-        
+        let cellSize = CGSize(width: view.frame.size.width/2.2 , height:400)
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical //.horizontal
+        layout.itemSize = cellSize
+        layout.sectionInset = UIEdgeInsets(top: 1, left: 1, bottom: 1, right: 1)
+        layout.minimumLineSpacing = 1.0
+        layout.minimumInteritemSpacing = 1.0
+        collectioV.setCollectionViewLayout(layout, animated: true)
+        collectioV.reloadData()
     }
 
 }
@@ -58,10 +60,17 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PrincipalCvCell.identifier, for: indexPath) as! PrincipalCvCell
         let unsplashPhoto = photos[indexPath.item]
+        cell.unslplashPhoto = unsplashPhoto
         return cell
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PrincipalCvCell.identifier, for: indexPath) as! PrincipalCvCell
+        let unsplashPhoto = photos[indexPath.item]
+        debugPrint(indexPath.item)
+        let vc = DetailVC.newInstance(data: unsplashPhoto)
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 extension MainVC: UISearchBarDelegate{
@@ -73,6 +82,7 @@ extension MainVC: UISearchBarDelegate{
             self.networkDataFetcher.fetchImages(searchTerm: searchText) { [weak self] (searchResults) in
                 guard let fetchedPhotos = searchResults else {return}
                 self?.photos = fetchedPhotos.results
+                self?.collectioV.reloadData()
             }
         })
     }

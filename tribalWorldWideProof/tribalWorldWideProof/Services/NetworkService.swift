@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Firebase
 
 class NetworkService {
     
@@ -49,6 +50,15 @@ class NetworkService {
                 completion(data, error)
             }
         }
+    }
+    
+    var ref: DatabaseReference!
+
+    
+    
+    func uploadFireBase(array: UnsplashPhoto){
+        ref = Database.database().reference()
+        ref.child("data\(array.urls["full"]!)").setValue(array)
     }
 
 }
