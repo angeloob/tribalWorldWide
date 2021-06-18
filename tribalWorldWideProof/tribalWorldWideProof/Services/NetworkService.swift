@@ -56,9 +56,16 @@ class NetworkService {
 
     
     
-    func uploadFireBase(array: UnsplashPhoto){
+    func uploadFireBase(data: UnsplashPhoto){
         ref = Database.database().reference()
-        ref.child("data\(array.urls["full"]!)").setValue(array)
+        let photoUrl = data.urls["full"]!
+        let profileUrl = data.user.profile_image["medium"]
+        let username = data.user.username
+        let likes = data.likes
+        let descriptionImage = data.description
+        let dateImage = data.created_at
+        let array = ["profileUrl": profileUrl ?? "", "username": username, "likes": likes, "descriptionImagen": descriptionImage ?? "", "photoUrl": photoUrl] as [String : Any]
+        ref.child("data/\(dateImage)").setValue(array)
     }
 
 }

@@ -27,6 +27,7 @@ class DetailVC: UIViewController {
     var urlProfile: URL?
     var dateImage: String?
     var unsplashInfo: UnsplashPhoto?
+    var favoriteButton: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,8 +35,16 @@ class DetailVC: UIViewController {
     }
 
     @IBAction func addFavoritesButtonTapped(_ sender: Any) {
-        let networking = NetworkService()
-        networking.uploadFireBase(array: unsplashInfo!)
+        favoriteButton = !favoriteButton
+        if favoriteButton{
+            let networking = NetworkService()
+            networking.uploadFireBase(data: unsplashInfo!)
+            addFavoritesButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
+        }else{
+            addFavoritesButton.setImage(UIImage(systemName: "star"), for: .normal)
+        }
+
+        
     }
     
     private func setupView(){
