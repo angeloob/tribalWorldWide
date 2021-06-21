@@ -20,6 +20,7 @@ class ProfileDetailsVC: UIViewController {
     @IBOutlet weak var numberOfLikes: UILabel!
     @IBOutlet weak var likesL: UILabel!
     @IBOutlet weak var locationL: UILabel!
+    @IBOutlet weak var collectionsTitleL: UILabel!
     @IBOutlet weak var photoCV: UICollectionView!{
         didSet{
             photoCV.register(UINib(nibName: ProfileCell.identifier, bundle: nil), forCellWithReuseIdentifier: ProfileCell.identifier)
@@ -51,13 +52,14 @@ class ProfileDetailsVC: UIViewController {
     private func setupView(){
         profileImage.layer.cornerRadius = profileImage.frame.size.width / 2
         let cellSize = CGSize(width: view.frame.size.width/2.2 , height:400)
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        layout.itemSize = cellSize
-        layout.sectionInset = UIEdgeInsets(top: 1, left: 1, bottom: 1, right: 1)
-        layout.minimumLineSpacing = 1.0
-        layout.minimumInteritemSpacing = 1.0
-        photoCV.setCollectionViewLayout(layout, animated: true)
+//        let layout = UICollectionViewFlowLayout()
+//        layout.scrollDirection = .horizontal
+//        layout.itemSize = cellSize
+//        layout.sectionInset = UIEdgeInsets(top: 1, left: 1, bottom: 1, right: 1)
+//        layout.minimumLineSpacing = 1.0
+//        layout.minimumInteritemSpacing = 1.0
+//        photoCV.setCollectionViewLayout(layout, animated: true)
+//        collectionsCV.setCollectionViewLayout(layout, animated: true)
 //        photoCV.reloadData()
         timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { (_) in
             self.networkDataFetcher.fetchImagesForProfile(username: self.username!, isForPhotos: false) { [weak self] (searchResults) in
@@ -94,6 +96,9 @@ extension ProfileDetailsVC: UICollectionViewDelegate, UICollectionViewDataSource
                 return imagePhotos.count
             case collectionsCV:
 //                return imagePhotos.count
+                if collectionPhotos.count == 0{
+                    collectionsTitleL.isHidden = true
+                }
                 return collectionPhotos.count
             default:
                 return 0

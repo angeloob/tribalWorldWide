@@ -49,7 +49,12 @@ class MainVC: UIViewController {
         layout.minimumLineSpacing = 1.0
         layout.minimumInteritemSpacing = 1.0
         collectioV.setCollectionViewLayout(layout, animated: true)
-        collectioV.reloadData()
+        networkDataFetcher.fetchImages(searchTerm: "random", currentPage: 1) { [weak self] (searchResults) in
+            guard let fetchedPhotos = searchResults else {return}
+            self?.photos = fetchedPhotos.results
+            self?.TotalPages = fetchedPhotos.total_pages
+            self?.collectioV.reloadData()
+        }
     }
 
 }
