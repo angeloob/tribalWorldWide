@@ -21,47 +21,24 @@ class ProfileCell: UICollectionViewCell {
         // Initialization code
     }
     
-    func setData(/*isCollection: Bool,*/ imagePhoto: imagePhoto){
-//        if isCollection{
+    func setData(imagePhoto: imagePhoto){
             opaqueView.isHidden = false
-            
-//        }else{
             opaqueView.isHidden = true
             let photoUrl = imagePhoto.urls["full"]
             guard let imageUrl = photoUrl, let url = URL(string: imageUrl) else {return}
-//            imageView.sd_setImage(with: url, completed: nil)
+            imageView.sd_setImage(with: url, completed: nil)
             imageView.contentMode = .scaleAspectFit
-            load(url: url)
-//            imageProfile.contentMode = .scaleAspectFit
 //        }
     }
     
-    func setDataOfCollections(/*isCollection: Bool,*/ imagePhoto: collectionPhoto){
-//        if isCollection{
+    func setDataOfCollections(imagePhoto: collectionPhoto){
             opaqueView.isHidden = false
-            
-//        }else{
             opaqueView.isHidden = true
             let photoUrl = imagePhoto.urls["full"]
             guard let imageUrl = photoUrl, let url = URL(string: imageUrl) else {return}
-//            imageView.sd_setImage(with: url, completed: nil)
+            imageView.sd_setImage(with: url, completed: nil)
             imageView.contentMode = .scaleAspectFit
-            load(url: url)
-//            imageProfile.contentMode = .scaleAspectFit
-//        }
     }
-    
-    func load(url: URL) {
-            DispatchQueue.global().async { [weak self] in
-                if let data = try? Data(contentsOf: url) {
-                    if let image = UIImage(data: data) {
-                        DispatchQueue.main.async {
-                            self?.imageView.image = image
-                        }
-                    }
-                }
-            }
-        }
     
     override func prepareForReuse() {
         super.prepareForReuse()
