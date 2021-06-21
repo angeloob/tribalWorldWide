@@ -93,6 +93,7 @@ extension ProfileDetailsVC: UICollectionViewDelegate, UICollectionViewDataSource
             case photoCV:
                 return imagePhotos.count
             case collectionsCV:
+//                return imagePhotos.count
                 return collectionPhotos.count
             default:
                 return 0
@@ -107,8 +108,8 @@ extension ProfileDetailsVC: UICollectionViewDelegate, UICollectionViewDataSource
                 return cell
             case collectionsCV:
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProfileCell.identifier, for: indexPath) as! ProfileCell
-                cell
-                    .setDataOfCollections(imagePhoto: collectionPhotos[indexPath.item])
+//                cell.setData(/*isCollection: false,*/ imagePhoto: imagePhotos[indexPath.item])
+                cell.setDataOfCollections(imagePhoto: collectionPhotos[indexPath.item])
                 return cell
             default:
                 return UICollectionViewCell()
