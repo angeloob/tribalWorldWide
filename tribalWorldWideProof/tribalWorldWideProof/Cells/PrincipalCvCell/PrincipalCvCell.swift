@@ -30,7 +30,22 @@ class PrincipalCvCell: UICollectionViewCell {
 //            guard let username = userN, let likes = like else { return }
             usernameL.text = userN
             likesL.text = String(like)
-            
+        }
+    }
+    
+    var favoritePhoto: dataDownloadedFromFirebase!{
+        didSet{
+            let photoUrl = favoritePhoto.photoUrl!
+            guard let url = URL(string: photoUrl) else {return}
+            imageView.sd_setImage(with: url, completed: nil)
+            let profilePhotoUrl = favoritePhoto.profileUrl!
+            guard let urlProfile = URL(string: profilePhotoUrl) else {return}
+            imageProfile.sd_setImage(with: urlProfile, completed: nil)
+            let userN = favoritePhoto.username
+            let like = favoritePhoto.likes
+//            guard let username = userN, let likes = like else { return }
+            usernameL.text = userN
+            likesL.text = "\(like ?? 0)"
         }
     }
     

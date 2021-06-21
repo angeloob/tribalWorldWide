@@ -29,6 +29,10 @@
 		5B99AE5D267C7E6200B4EB89 /* DetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B99AE5B267C7E6100B4EB89 /* DetailVC.xib */; };
 		5B99AE60267C904A00B4EB89 /* ExtensionUIVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B99AE5F267C904A00B4EB89 /* ExtensionUIVIewController.swift */; };
 		5B99AE62267CF5CE00B4EB89 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B99AE61267CF5CD00B4EB89 /* GoogleService-Info.plist */; };
+		5B99AE66267DC55300B4EB89 /* ProfileDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B99AE64267DC55300B4EB89 /* ProfileDetailsVC.swift */; };
+		5B99AE67267DC55300B4EB89 /* ProfileDetailsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B99AE65267DC55300B4EB89 /* ProfileDetailsVC.xib */; };
+		5B99AE6B267DE88E00B4EB89 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B99AE69267DE88E00B4EB89 /* ProfileCell.swift */; };
+		5B99AE6C267DE88E00B4EB89 /* ProfileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B99AE6A267DE88E00B4EB89 /* ProfileCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +61,10 @@
 		5B99AE5B267C7E6100B4EB89 /* DetailVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailVC.xib; sourceTree = "<group>"; };
 		5B99AE5F267C904A00B4EB89 /* ExtensionUIVIewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIVIewController.swift; sourceTree = "<group>"; };
 		5B99AE61267CF5CD00B4EB89 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5B99AE64267DC55300B4EB89 /* ProfileDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailsVC.swift; sourceTree = "<group>"; };
+		5B99AE65267DC55300B4EB89 /* ProfileDetailsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileDetailsVC.xib; sourceTree = "<group>"; };
+		5B99AE69267DE88E00B4EB89 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
+		5B99AE6A267DE88E00B4EB89 /* ProfileCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileCell.xib; sourceTree = "<group>"; };
 		C919D959544B2DC77169D0EE /* Pods-tribalWorldWideProof.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tribalWorldWideProof.release.xcconfig"; path = "Target Support Files/Pods-tribalWorldWideProof/Pods-tribalWorldWideProof.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -139,6 +147,7 @@
 		5B99AE40267BF63700B4EB89 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				5B99AE63267DC53100B4EB89 /* profileDetails */,
 				5B99AE59267C7E3700B4EB89 /* DetailVC */,
 				5B99AE2D267BC83A00B4EB89 /* FavotiteSection */,
 				5B99AE37267BF30D00B4EB89 /* MainVC */,
@@ -150,6 +159,7 @@
 		5B99AE41267BF85200B4EB89 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				5B99AE68267DE86300B4EB89 /* ProfileCell */,
 				5B99AE4C267C1AB800B4EB89 /* PrincipalCvCell */,
 				5B99AE47267C1A8700B4EB89 /* FavoritesCell */,
 			);
@@ -206,6 +216,24 @@
 				5B99AE5F267C904A00B4EB89 /* ExtensionUIVIewController.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		5B99AE63267DC53100B4EB89 /* profileDetails */ = {
+			isa = PBXGroup;
+			children = (
+				5B99AE64267DC55300B4EB89 /* ProfileDetailsVC.swift */,
+				5B99AE65267DC55300B4EB89 /* ProfileDetailsVC.xib */,
+			);
+			path = profileDetails;
+			sourceTree = "<group>";
+		};
+		5B99AE68267DE86300B4EB89 /* ProfileCell */ = {
+			isa = PBXGroup;
+			children = (
+				5B99AE69267DE88E00B4EB89 /* ProfileCell.swift */,
+				5B99AE6A267DE88E00B4EB89 /* ProfileCell.xib */,
+			);
+			path = ProfileCell;
 			sourceTree = "<group>";
 		};
 		8F5FE4980484FCB13745C8C9 /* Pods */ = {
@@ -288,7 +316,9 @@
 				5B99AE5D267C7E6200B4EB89 /* DetailVC.xib in Resources */,
 				5B99AE62267CF5CE00B4EB89 /* GoogleService-Info.plist in Resources */,
 				5B99AE3F267BF3AC00B4EB89 /* MainVC.xib in Resources */,
+				5B99AE6C267DE88E00B4EB89 /* ProfileCell.xib in Resources */,
 				5B99AE26267BA8EB00B4EB89 /* LaunchScreen.storyboard in Resources */,
+				5B99AE67267DC55300B4EB89 /* ProfileDetailsVC.xib in Resources */,
 				5B99AE31267BC86900B4EB89 /* FavoriteSection.xib in Resources */,
 				5B99AE23267BA8EB00B4EB89 /* Assets.xcassets in Resources */,
 				5B99AE36267BDCD700B4EB89 /* Main.storyboard in Resources */,
@@ -354,9 +384,11 @@
 				5B99AE3E267BF3AC00B4EB89 /* MainVC.swift in Sources */,
 				5B99AE34267BCC5200B4EB89 /* MainTabBarController.swift in Sources */,
 				5B99AE1A267BA8EA00B4EB89 /* AppDelegate.swift in Sources */,
+				5B99AE66267DC55300B4EB89 /* ProfileDetailsVC.swift in Sources */,
 				5B99AE55267C48CA00B4EB89 /* NetworkDataFetcher.swift in Sources */,
 				5B99AE1C267BA8EA00B4EB89 /* SceneDelegate.swift in Sources */,
 				5B99AE4A267C1AB500B4EB89 /* FavoritesCell.swift in Sources */,
+				5B99AE6B267DE88E00B4EB89 /* ProfileCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

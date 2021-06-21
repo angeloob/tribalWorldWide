@@ -21,6 +21,9 @@ class MainVC: UIViewController {
     var networkDataFetcher = NetworkDataFetcher()
     private var timer: Timer?
     private var photos = [UnsplashPhoto]()
+    private var currentPage: Int = 1
+    private var TotalPages: Int = 0
+    private var searchedText: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,17 +74,32 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource{
         let vc = DetailVC.newInstance(data: unsplashPhoto)
         navigationController?.pushViewController(vc, animated: true)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if currentPage < TotalPages && indexPath.row == photos.count - 1{
+            currentPage = currentPage + 1
+            timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { (_) in
+                self.networkDataFetcher.fetchImages(searchTerm: self.searchedText, currentPage: self.currentPage) { [weak self] (searchResults) in
+                    guard let fetchedPhotos = searchResults else {return}
+                    self?.photos.append(contentsOf: fetchedPhotos.results) //= fetchedPhotos.results
+                    self?.TotalPages = fetchedPhotos.total_pages
+                    self?.collectioV.reloadData()
+                }
+            })
+        }
+    }
 }
 
 extension MainVC: UISearchBarDelegate{
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         debugPrint(searchText)
-        
+        self.searchedText = searchText
         timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { (_) in
-            self.networkDataFetcher.fetchImages(searchTerm: searchText) { [weak self] (searchResults) in
+            self.networkDataFetcher.fetchImages(searchTerm: searchText, currentPage: 1) { [weak self] (searchResults) in
                 guard let fetchedPhotos = searchResults else {return}
                 self?.photos = fetchedPhotos.results
+                self?.TotalPages = fetchedPhotos.total_pages
                 self?.collectioV.reloadData()
             }
         })

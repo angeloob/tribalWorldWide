@@ -16,4 +16,10 @@ extension UIViewController{
             dateformat.dateFormat = format
             return dateformat.string(from: date)
     }
+    
+    func genericAlert(title: String, description: String) {
+        let alert = UIAlertController(title: title, message: description, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
 }
